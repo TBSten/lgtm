@@ -22,13 +22,14 @@ function hashCode(string) {
         const randomName = document.getElementById("random-name")
         const randomImage = document.getElementById("random-image")
         const randomMarkdown = document.getElementById("random-markdown")
-        const selectedImage = images[Math.floor(Math.random() * array.length)]
+        const selectedImage = images[Math.floor(Math.random() * images.length)]
         console.log(selectedImage)
         randomName.innerText = selectedImage.name
         randomImage.src = selectedImage.url
         randomImage.alt = selectedImage.name
         randomMarkdown.value = `<img src="${selectedImage.url}" width="100" alt="${selectedImage.name}"/>`
     })
+    randomButton.click()
 
     // set LGTMs table content
 
