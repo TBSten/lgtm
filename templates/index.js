@@ -48,7 +48,7 @@ function hashCode(string) {
     </td>
     `
         tbody.appendChild(tr)
-        const markdown = getElementById(`markdown-${hashCode(image.name)}`)
+        const markdown = document.getElementById(`markdown-${hashCode(image.name)}`)
         markdown.value = `<img src="${image.url}" width="100" name="${image.name}">`
     })
 
