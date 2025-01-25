@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  release-documents:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
