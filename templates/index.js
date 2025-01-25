@@ -27,7 +27,7 @@ function hashCode(string) {
         randomName.innerText = selectedImage.name
         randomImage.src = selectedImage.url
         randomImage.alt = selectedImage.name
-        randomMarkdown.value = `<img src="${selectedImage.url}" width="100" alt="${selectedImage.name}"/>`
+        randomMarkdown.value = `<img src="https://tbsten.github.io/lgtm/${selectedImage.url}" width="100" alt="${selectedImage.name}"/>`
     })
     randomButton.click()
 
@@ -41,7 +41,7 @@ function hashCode(string) {
     <td><a href="${image.url}">${image.name}</a></td>
     <td>
         <a href="${image.url}">
-            <img src="${image.url}" alt="${image.name}" width="150" />
+            <img src="https://tbsten.github.io/lgtm/${image.url}" alt="${image.name}" width="150" />
         </a>
     </td>
     <td>
@@ -50,7 +50,7 @@ function hashCode(string) {
     `
         tbody.appendChild(tr)
         const markdown = document.getElementById(`markdown-${hashCode(image.name)}`)
-        markdown.value = `<img src="${image.url}" width="100" name="${image.name}">`
+        markdown.value = `<img src="https://tbsten.github.io/lgtm/${image.url}" width="100" name="${image.name}">`
     })
 
 })()
