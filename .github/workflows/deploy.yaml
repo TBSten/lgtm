@@ -14,6 +14,11 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+
+      - run: node generateHtmlPage.js
+      - run: cp -r templates/* . && rm -rf templates
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
