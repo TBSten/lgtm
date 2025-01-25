@@ -11,9 +11,10 @@ function hashCode(string) {
 }
 
 (async () => {
-    const images = await fetch("./images.json")
+    const { "500x500": images500x500, "base": imagesBase } = await fetch("./images.json")
         .then(r => r.json())
-    globalThis.images = images
+    globalThis.images500x500 = images500x500
+    globalThis.images500x500 = imagesBase
 
     // Generate on random button click
 
@@ -22,7 +23,7 @@ function hashCode(string) {
         const randomName = document.getElementById("random-name")
         const randomImage = document.getElementById("random-image")
         const randomMarkdown = document.getElementById("random-markdown")
-        const selectedImage = images[Math.floor(Math.random() * images.length)]
+        const selectedImage = images500x500[Math.floor(Math.random() * images500x500.length)]
         console.log(selectedImage)
         randomName.innerText = selectedImage.name
         randomImage.src = selectedImage.url
@@ -34,7 +35,7 @@ function hashCode(string) {
     // set LGTMs table content
 
     const tbody = document.getElementById("lgtms-tbody")
-    images.map((image) => {
+    images500x500.map((image) => {
         console.log(image)
         const tr = document.createElement("tr")
         tr.innerHTML = `
