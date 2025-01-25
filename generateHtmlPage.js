@@ -22,5 +22,5 @@ const [images500x500, imagesBase] = await Promise.all([
     listFiles("base"),
 ])
 
-const images = [...images500x500, imagesBase]
+const images = [...images500x500, ...imagesBase]
 await fs.writeFile(outputJsonPath, JSON.stringify(images))
