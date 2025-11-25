@@ -38,6 +38,22 @@ function hashCode(string) {
     images500x500.map((image) => {
         console.log(image)
         const tr = document.createElement("tr")
+
+        // author列の生成
+        let authorCell = "<td>-</td>"
+        if (image.author) {
+            const authorLink = `https://x.com/${image.author.replace(/^@/, "")}`
+            authorCell = `<td><a href="${authorLink}" target="_blank">${image.author}</a></td>`
+        }
+
+        // license列の生成
+        let licenseCell = "<td>-</td>"
+        if (image.licenseUrl) {
+            licenseCell = `<td><a href="${image.licenseUrl}" target="_blank">${image.license || "-"}</a></td>`
+        } else if (image.license) {
+            licenseCell = `<td>${image.license}</td>`
+        }
+
         tr.innerHTML = `
     <td><a href="${image.url}">${image.name}</a></td>
     <td>
@@ -48,6 +64,8 @@ function hashCode(string) {
     <td>
         <textarea id="markdown-${hashCode(image.name)}"></textarea>
     </td>
+    ${authorCell}
+    ${licenseCell}
     `
         tbody.appendChild(tr)
         const markdown = document.getElementById(`markdown-${hashCode(image.name)}`)
