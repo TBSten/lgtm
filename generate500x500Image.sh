@@ -3,7 +3,7 @@
 mkdir -p 500x500
 for img in base/*; do
   case "${img##*.}" in
-    png|jpg|jpeg) ;;
+    png|jpg|jpeg|PNG) ;;
     *) continue ;;
   esac
   [ -e "$img" ] || continue
