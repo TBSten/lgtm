@@ -85,4 +85,4 @@ const images = {
     "500x500": images500x500,
     "base": imagesBase,
 }
-await fs.writeFile(outputJsonPath, JSON.stringify(images))
+await fs.writeFile(outputJsonPath, JSON.stringify(images, null, 2))
