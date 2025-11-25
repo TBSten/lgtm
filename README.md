@@ -1,4 +1,4 @@
-# TBSten LGTM
+# [TBSten LGTM](https://tbsten.github.io/lgtm/)
 
 ## 画像の追加方法
 
