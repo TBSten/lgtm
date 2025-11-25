@@ -16,6 +16,22 @@ jobs:
         uses: actions/checkout@v4
       - uses: actions/setup-node@v4
 
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Resize images to 500x500 and copy to 500x500 directory
+        run: |
+          mkdir -p 500x500
+          for img in base/*; do
+            case "${img##*.}" in
+              png|jpg|jpeg) ;;
+              *) continue ;;
+            esac
+            [ -e "$img" ] || continue
+            filename=$(basename "$img")
+            magick "$img" -resize 500x500^ -gravity center -extent 500x500 "500x500/$filename"
+          done
+
       - run: node generateHtmlPage.js
       - run: cp -r templates/* . && rm -rf templates
 
