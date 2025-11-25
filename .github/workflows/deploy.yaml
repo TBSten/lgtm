@@ -29,7 +29,7 @@ jobs:
             esac
             [ -e "$img" ] || continue
             filename=$(basename "$img")
-            magick "$img" -resize 500x500^ -gravity center -extent 500x500 "500x500/$filename"
+            convert "$img" -resize 500x500^ -gravity center -extent 500x500 "500x500/$filename"
           done
 
       - run: node generateHtmlPage.js
